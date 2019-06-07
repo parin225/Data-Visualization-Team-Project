@@ -32,5 +32,10 @@ CSV SOURCES:
 2) Life Expectancy CSV- a.Clio-Infra's dataset for life expectancy up until 1949: https://datasets.socialhistory.org/dataset.xhtml?persistentId=hdl:10622/LKYT53 b. the UN Population Division for data from 1950 to 2015: https://esa.un.org/unpd/wpp/Download/Standard/Population/  
 3)ART CSV- World Bank- Development Indicators: http://data.worldbank.org/data-catalog/world-development-indicators  
   
-Visualization Inspo: Mouse over Map, Line, and Bar Chart- Images are located in Images folder within the repository.  
-Sketches are also located in the Images folder within the repository.  
+Visualization Inspo: Mouse over Map, Line, and Bar Chart  
+![image](https://github.com/parin225/Data-Visualization-Team-Project/blob/master/Images/BarGraph02.png)
+![image](https://github.com/parin225/Data-Visualization-Team-Project/blob/master/Images/Picture2.png)
+![image](https://github.com/parin225/Data-Visualization-Team-Project/blob/master/Images/Picture1.png)
+
+Sketch:
+![image](https://github.com/parin225/Data-Visualization-Team-Project/blob/master/Images/IMG_1910.JPG)
