@@ -1,0 +1,79 @@
+/* change background color for each webpage */
+body {
+background-color: lightgray;
+}
+
+/* change heading colors on donate tab */
+.donate {
+  color:darkslategray;
+}
+
+/* center images on donate tab */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+/* make all the header titles change to this color font */
+h2 {
+color: darkslategrey;
+}
+
+/* format the logo in the navigation bar */
+.navbar-brand {
+padding: 15px;
+background-color: lightgray;
+}
+
+/* format the navigation bar */
+.navbar {
+background-color: lightgray;
+padding: 15px;
+}
+
+/* format the body of each webpage */
+.container{
+background-color: white;
+margin-top: 50px;
+padding: 75px;
+}
+
+/* set margins for homepage  */
+.descriptions{
+  margin-left:75px;
+  margin-right: 75px;
+  margin-bottom: 20px;
+}
+
+/* media query to change the navigation bar when the width of the page becomes smaller than 768 pixels */
+@media (max-width: 768px) {
+    .navbar {
+        background-color: gray !important;
+    }
+    .navbar-brand {
+        color: white !important;
+    }
+
+}
+
+
+/* remove default margin and padding from body */
+body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* set map, body, and html to 100% of the screen size */
+  #map,
+  body,
+  html {
+    height: 85%;
+    width: 100%;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
