@@ -1,3 +1,25 @@
+
+// Loading in CSV file
+d3.csv("CSV files/aids_2013_to_2017.csv", function(err, d) {
+  if (err) throw err;
+  var selectedYear = 2017;
+  console.log(d)
+  var countryData = {};
+  for (var i = 0; i < d.length; i++){
+    countryData[d[i]["Entity"] + d[i]["Year"] ] = d[i]["HIV_Incidents(tens)"]
+  }
+  // var prevCountry = ""
+  // for (var i =0; i< d.length; i++){
+  //   if (d[i]["Entity"] == prevCountry){
+  //     countryData[d[i]["Entity"]][d[i]["Year"]] = d[i]["HIV_Incidents(tens)"]
+  //   } else {
+  //     countryData[d[i]["Entity"]] = {};
+  //     countryData[d[i]["Entity"]][d[i]["Year"]] = d[i]["HIV_Incidents(tens)"]
+  //   }
+  //   prevCountry = d[i]["Entity"];
+  // }
+ 
+
 // Create a map object
 var myMap = L.map("map", {
     center: [15.5994, -28.6731],
@@ -12,10 +34,8 @@ var myMap = L.map("map", {
     accessToken: API_KEY
   }).addTo(myMap);
 
-
 // Loading GeoJSON file - 
 d3.json("geoJSON/countries.geojson",function(data){
-  console.log(data);
 
 // Creating a geoJSON layer that will retrieve data
   L.geoJson(data, {
@@ -25,7 +45,7 @@ d3.json("geoJSON/countries.geojson",function(data){
           mouseover: function(event) {
           layer = event.target;
           layer.setStyle({
-            fillOpacity: 1
+            fillOpacity: 0.5
           });
         },
           mouseout: function(event) {
@@ -39,12 +59,23 @@ d3.json("geoJSON/countries.geojson",function(data){
         }
       });
       // Bind text to popup when country is clicked
-      layer.bindPopup("Country: " + feature.properties.ADMIN + "<hr> HIV Rate: " + feature.properties.HIV_Incidents);
+      layer.bindPopup("Country: " + feature.properties.ADMIN + "<hr> HIV Rate: " + countryData[feature.properties.ADMIN + selectedYear]);
     }
 
 
   }).addTo(myMap);
 });
+
+
+
+
+  // return {
+  //   Country: d.Entity,
+  //   Year: +d.year,
+  //   HIV_Incidents: d["HIV_Incidents(tens)"]
+  // };
+  console.log(countryData);
+})
 
 
 // function getColor(HIV) {
