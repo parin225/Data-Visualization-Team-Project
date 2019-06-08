@@ -25,6 +25,9 @@
 
     <!-- CSS  -->
     <link rel="stylesheet" href="CSS/style.css">
+
+     <!-- Plotly.js -->
+     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     
 </head>
 
@@ -52,4 +55,66 @@
     </div>
     </nav>
 
+    <div>
+            <div class="row descriptions">
+                    <div class="col-sm-12 col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <h2>What Is HIV Treatment?</h2>
+                                    <hr>
+                                        <p>
+                                                HIV treatment involves taking medicines that slow the progression of the virus in your body. 
+                                                HIV is a type of virus called a retrovirus, and the combination of drugs used to treat it is called antiretroviral therapy (ART). 
+                                                ART is recommended for all people living with HIV, regardless of how long they’ve had the virus or how healthy they are. 
+                                                ART must be taken every day, exactly as your health care provider prescribes.</p>   
+                                        <br>
+                                    <h2>Why Is HIV Treatment Important?</h2>
+                                        <hr> 
+                                            <p>
+                                                    Getting and staying on HIV treatment because it reduces the amount of HIV in your blood (also called the viral load) to a very low level. 
+                                                    This keeps you healthy and prevents illness. There is also a major prevention benefit. People living with HIV who take HIV medication 
+                                                    daily as prescribed and get and keep an undetectable viral load have effectively no risk of sexually transmitting HIV to their HIV-negative partners.
+                                                    This is called treatment as prevention.
+                                            </p>
+                                            <p>
+                                                    If left untreated, HIV attacks your immune system and can allow different types of life-threatening infections and cancers to develop.
+                                                    If your CD4 cell count falls below a certain level, you are at risk of getting an opportunistic infection. These are infections that don’t
+                                                    normally affect people with healthy immune systems but that can infect people with immune systems weakened by HIV infection. Your health care
+                                                    provider may prescribe medicines to prevent certain infections.
+                                            </p>
+                                            <p>
+                                                    HIV treatment is most likely to be successful when you know what to expect and are committed to taking your medicines exactly as prescribed. 
+                                                    Working with your health care provider to develop a treatment plan will help you learn more about HIV and manage it effectively.
+                                            </p>
+                                            <br>
+                                                <br>
+                                                <br>
 
+<div class="container">
+    <div class="row">
+            <div class="col-sm-6 col-sm-6">
+                        <div id="myDiv"></div>
+                            
+                            <div class="showcase__section" id="bubble">
+                                <div id="bubbleplots">
+                                <div class="bubbleplot" data-num="0">
+                                    <div class="plot" id="plotdiv"></div>
+                                    <div class="control-row">
+                                    Country: <select class="countrydata">
+                                    </select>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-sm-6"></div>
+                        <div id="myART"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="static/LifeExpectancy.js"></script>
+<script type="text/javascript" src="static/ART.js"></script>
+       
+
+</body>
+</html>
