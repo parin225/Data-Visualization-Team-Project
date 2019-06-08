@@ -2,23 +2,10 @@
 // Loading in CSV file
 d3.csv("CSV files/aids_2013_to_2017.csv", function(err, d) {
   if (err) throw err;
-  var selectedYear = 2017;
-  console.log(d)
   var countryData = {};
   for (var i = 0; i < d.length; i++){
-    countryData[d[i]["Entity"] + d[i]["Year"] ] = d[i]["HIV_Incidents(tens)"]
+    countryData[d[i]["Entity"]] = d[i]["HIV_Incidents(tens)"]
   }
-  // var prevCountry = ""
-  // for (var i =0; i< d.length; i++){
-  //   if (d[i]["Entity"] == prevCountry){
-  //     countryData[d[i]["Entity"]][d[i]["Year"]] = d[i]["HIV_Incidents(tens)"]
-  //   } else {
-  //     countryData[d[i]["Entity"]] = {};
-  //     countryData[d[i]["Entity"]][d[i]["Year"]] = d[i]["HIV_Incidents(tens)"]
-  //   }
-  //   prevCountry = d[i]["Entity"];
-  // }
- 
 
 // Create a map object
 var myMap = L.map("map", {
@@ -37,6 +24,47 @@ var myMap = L.map("map", {
 // Loading GeoJSON file - 
 d3.json("geoJSON/countries.geojson",function(data){
 
+    function getColor(HIV) {
+      return HIV > 3000000 ? '#800026':
+        HIV > 2000000  ? '#BD0026' :
+        HIV > 1000000  ? '#E31A1C' :
+        HIV > 500000  ? '#FC4E2A' :
+        HIV > 100000  ? '#FD8D3C' :
+        HIV > 50000   ? '#FEB24C' :
+        HIV > 0       ? '#FED976' :
+                      '#FFEDA0';
+
+    }
+
+    function style(feature) {
+      return {
+        fillColor: getColor(countryData[feature.properties.ADMIN]),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+      };
+
+    }
+    var legend = L.control({position: 'bottomright'});
+
+    legend.onAdd = function (myMap) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        incidents = [0, 50000, 100000, 500000, 1000000, 2000000, 3000000],
+        labels = [];
+
+    // loop through our incident intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < incidents.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor(incidents[i] + 1) + '"></i> ' +
+            incidents[i] + (incidents[i + 1] ? '&ndash;' + incidents[i + 1] + '<br>' : '+');
+    }
+
+    return div;
+};
+
 // Creating a geoJSON layer that will retrieve data
   L.geoJson(data, {
     // Called on each feature. Set mouseover/mouseout/click events
@@ -45,13 +73,13 @@ d3.json("geoJSON/countries.geojson",function(data){
           mouseover: function(event) {
           layer = event.target;
           layer.setStyle({
-            fillOpacity: 0.5
+            fillOpacity: 0.7
           });
         },
           mouseout: function(event) {
           layer = event.target;
           layer.setStyle({
-            fillOpacity: 0.2
+            fillOpacity: 0.7
           });
         },
           click: function(event) {
@@ -59,46 +87,17 @@ d3.json("geoJSON/countries.geojson",function(data){
         }
       });
       // Bind text to popup when country is clicked
-      layer.bindPopup("Country: " + feature.properties.ADMIN + "<hr> HIV Rate: " + countryData[feature.properties.ADMIN + selectedYear]);
-    }
-
+      layer.bindPopup("Country: " + feature.properties.ADMIN + "<hr> HIV Rate: " + countryData[feature.properties.ADMIN]);
+    }, 
+    style: style,
+    legend: legend
 
   }).addTo(myMap);
+  map.setView([5, 5], 5);
+
+
+  });
 });
 
+map.setView([0, 0], 0);
 
-
-
-  // return {
-  //   Country: d.Entity,
-  //   Year: +d.year,
-  //   HIV_Incidents: d["HIV_Incidents(tens)"]
-  // };
-  console.log(countryData);
-})
-
-
-// function getColor(HIV) {
-//   return HIV > 800000 ? '#800026':
-//   HIV > 600000  ? '#BD0026' :
-//   HIV > 400000  ? '#E31A1C' :
-//   HIV > 200000  ? '#FC4E2A' :
-//   HIV > 100000  ? '#FD8D3C' :
-//   HIV > 50000   ? '#FEB24C' :
-//   HIV > 0       ? '#FED976' :
-//                   '#FFEDA0';
-
-// }
-
-// function style(feature) {
-//   return {
-//     fillColor: getColor(feature.properties.HIV_Incidents),
-//     weight: 2,
-//     opacity: 1,
-//     color: 'white',
-//     dashArray: '3',
-//     fillOpacity: 0.7
-//   };
-
-// }
-// L.geoJson(countries.geojson, {style:style}).addTo(myMap);
