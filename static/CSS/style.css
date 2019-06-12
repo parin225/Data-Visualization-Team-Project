@@ -1,6 +1,8 @@
 /* change background color for each webpage */
 body {
 background-color: white;
+padding: 0;
+margin: 0;
 }
 
 /* change heading colors on donate tab */
@@ -19,21 +21,24 @@ background-color: white;
   width: 70%;
 }
 
+/* set header on donate tab to be centered */
+h1 {
+  text-align: center;
+}
+
 #myDiv {
   margin-left: 10px;
   position: static;
-
 }
 
 #myArt {
   margin-left: 10px;
   position: static;
-
-
 }
 
+/* change the color of the different tab names */
 .nav-link {
-  color: white;
+  color: white !important;
 }
 
 /* make all the header titles change to this color font */
@@ -72,11 +77,9 @@ padding: 75px;
     .navbar {
         background-color: red !important;
     }
-
     .navbar-brand {
         color: red !important;
     }
-
 }
 
 /* media query to change the navigation bar when the width of the page changes */
@@ -87,7 +90,6 @@ padding: 75px;
   .navbar-brand {
       color: red !important;
   }
-
 }
 
 /* remove default margin and padding from body */
@@ -104,6 +106,3 @@ body {
     width: 100%;
   }
   
-  h1 {
-    text-align: center;
-  }

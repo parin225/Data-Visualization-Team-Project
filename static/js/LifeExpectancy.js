@@ -1,6 +1,6 @@
 // Load data from life-expectancy.csv
 
-Plotly.d3.csv('CSV files/life_expectancy_2000to2017.csv', function(err, rows){
+Plotly.d3.csv('../CSV files/life_expectancy_2000to2017.csv', function(err, rows){
     
     function unpack(rows, key) {
         return rows.map(function(row) { return row[key]; });

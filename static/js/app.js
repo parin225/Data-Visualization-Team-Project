@@ -1,6 +1,5 @@
-
 // Loading in CSV file
-d3.csv("CSV files/aids_2013_to_2017.csv", function(err, d) {
+d3.csv("../CSV files/aids_2013_to_2017.csv", function(err, d) {
   if (err) throw err;
   var countryData = {};
   for (var i = 0; i < d.length; i++){
@@ -9,8 +8,8 @@ d3.csv("CSV files/aids_2013_to_2017.csv", function(err, d) {
 
 // Create a map object
 var myMap = L.map("map", {
-    center: [15.5994, -28.6731],
-    zoom: 2
+    center: [34.5994, -10.6731],
+    zoom: 0.5
   });
   
   // Adding tile layer
@@ -18,11 +17,14 @@ var myMap = L.map("map", {
     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
     maxZoom: 18,
     id: "mapbox.streets-basic",
+    noWrap: false,
     accessToken: API_KEY
   }).addTo(myMap);
 
+  myMap.fitWorld().zoomIn();
+
 // Loading GeoJSON file - 
-d3.json("geoJSON/countries.geojson",function(data){
+d3.json("../geoJSON/countries.geojson",function(data){
 
     function getColor(HIV) {
       return HIV > 3000000 ? '#800026':
@@ -65,18 +67,16 @@ d3.json("geoJSON/countries.geojson",function(data){
           });
         },
           click: function(event) {
-            myMap.fitBounds(event.target.getBounds());
+            // myMap.fitBounds(event.target.getBounds());
         }
       });
       // Bind text to popup when country is clicked
       layer.bindPopup("Country: " + feature.properties.ADMIN + "<hr> HIV Rate: " + countryData[feature.properties.ADMIN]);
     }, 
     style: style,
-    legend: legend
+    
 
   }).addTo(myMap);
-  map.setView([5, 5], 5);
-
 
   });
 });
@@ -97,7 +97,9 @@ d3.json("geoJSON/countries.geojson",function(data){
     }
 
     return div;
+
+legend.addTo(myMap);
 };
 
-  legend.addTo(myMap);
+
 
