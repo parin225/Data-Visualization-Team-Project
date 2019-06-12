@@ -25,16 +25,19 @@
 
     <!-- CSS  -->
     <link rel="stylesheet" href="CSS/style.css">
+
+     <!-- Plotly.js -->
+     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="hiv.html" class="navbar-brand">HIV</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light xyz">
+        <a href="templates/hiv.html" class="navbar-brand">HIV</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-    <div class="collapse navbar-collapse" id="navbarText">
+    <div class="collapse navbar-collapse xyz" id="navbarText">
         <ul class="navbar-nav ml-auto">
          <li class="nav-item active">
             <a class="nav-link" href="preventions.html">Preventions <span class="sr-only"></span></a>
@@ -52,4 +55,177 @@
     </div>
     </nav>
 
+     <!-- map div -->
+    <div id="map"></div>
+    
+    <!-- API key -->
+    <script type="text/javascript" src="static/config.js"></script>
 
+    <!-- JS  -->
+    <script type="text/javascript" src="static/app.js"></script>
+
+    <div>
+            <div class="row descriptions">
+                    <div class="col-sm-12 col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <br>
+                                    <br>
+                                    <h2>What Is HIV Treatment?</h2>
+                                    <hr>
+                                        <p>
+                                                HIV treatment involves taking medicines that slow the progression of the virus in your body. 
+                                                HIV is a type of virus called a retrovirus, and the combination of drugs used to treat it is called antiretroviral therapy (ART). 
+                                        </p>   
+                                        <p>
+                                                Although a cure for HIV does not yet exist, ART can keep you healthy for many years, ART reduces the amount of virus (or viral load) in your blood
+                                                and body fluids. ART is recommended for all people with HIV, regardless of how long they've had the virus or how healthy they are. ART also reduces your 
+                                                chance of transmitting HIV to others if taken as prescribed.
+                                        </p>
+                                        <p>
+                                                ART is usually taken as a combination of 3 or more drugs to have the greatest chance of lowering the amount of HIV in your body. Ask your health care provider about 
+                                                the availability of multiple drugs combined into 1 pill.
+                                        </p>
+                                        <p>
+                                                If the HIV medicines you are taking are not working as well as they should, your health care provider may change your prescription. A change is not unusual because the same 
+                                                treatment does not affect everyone in the same way.
+                                        </p>
+                                        <p>
+                                                Let your health care provider and pharmacist know about any medical conditions you may have and any other medicines you are taking. Additionally, if you or your partner is pregnant
+                                                or considering getting pregnant, talk to your health care provider to determine the right type of ART that can greatly reduce the risk of transmitting HIV to your baby.
+                                        </p>
+                                        <br>
+                                    <h2>When should you start treatment?</h2>
+                                        <hr> 
+                                            <p>
+                                                    Treatment guidelines from the U.S. Department of Health and Human Services recommend that a person with HIV begin antiretroviral therapy (ART) as soon as possible after diagnosis. 
+                                                    Starting ART slows the progression of HIV and can keep you healthy for many years.
+                                            </p>
+                                            <p>
+                                                    If you delay treatment, the virus will continue to harm your immune system and put you at higher risk for developing AIDS, which can be life threatening.
+                                            </p>
+                                            <p>
+                                                    HIV treatment is most likely to be successful when you know what to expect and are committed to taking your medicines exactly as prescribed. 
+                                                    Working with your health care provider to develop a treatment plan will help you learn more about HIV and manage it effectively.
+                                            </p>
+                                            <br>
+                                    <h2>ART Side Effects</h2>
+                                            <hr>
+                                                <p>
+                                                    Like most medicines, antiretroviral therapy (ART) can cause side effects. However, not everyone experiences side effects from ART.
+                                                </p>
+                                                <p>
+                                                    Some common side effects of ART that you may experience can include:
+                                                        <br>
+                                                        <br>
+                                                        Nausea and vomiting,
+                                                        <br>
+                                                        Diarrhea,
+                                                        <br>
+                                                        Difficulty sleeping,
+                                                        <br>
+                                                        Dry mouth,
+                                                        <br>
+                                                        Headache,  
+                                                        <br>
+                                                        Rash,
+                                                        <br>
+                                                        Dizziness,
+                                                        <br>
+                                                        Fatigue, and
+                                                        <br>
+                                                        Pain
+                                                </p>
+                                                <br>
+                                    <h2>What are the benefits of sticking to HIV treatment</h2>
+                                            <hr>
+                                                <p>
+                                                    - Allows HIV medications to reduce the amount of HIV in your body. If you skip your medications, even once in a while, you are giving HIV the chance
+                                                    to multiply rapidly. Keeping the amount of virus in your blood as low as possible is the best way to protect your health.
+                                                </p>
+                                                <p>
+                                                    - Helps keep your immune system stronger and better able to fight infections.
+                                                </p>
+                                                <p>
+                                                    - Reduces the risk of passing HIV to others. If you take HIV medicine as prescribed and get and keep an undetectable viral load, you have effectively no risk 
+                                                    of transmitting HIV to an HIV-negative partner through sex.
+                                                </p>
+                                                 <p>
+                                                    - Helps prevent drug resistance. Drug resistance develops when the virus changes form (mutates) and no longer responds to certain HIV medication. This limits the 
+                                                    options for successful HIV treatment. Drug-resistant strains of HIV can be transmitted to others, too.
+                                                </p>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <h8>Information Dervied From: <a href="https://www.cdc.gov/hiv/basics/livingwithhiv/treatment.html">https://www.cdc.gov/hiv/basics/livingwithhiv/treatment.html</a></h8>
+
+<div class="container">
+    <div class="row">
+        <div class="showcase__section" id="bubble">
+                 <div id="bubbleplots">
+                    <div class="bubbleplot" data-num="0">
+                        <div class="plot" id="plotdiv"></div>
+                        <div class="control-row">
+                            Country: <select class="countrydata"></select>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Life Expectancy</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="myDiv"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>ART Treatment</h3>
+                </div>
+                <div class="panel-body">
+                <div id="myArt"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+                            <!--                             
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <table>
+                                            <tr>
+                                                <td><div id="myDiv" style="width: 300px; height: 300px;"></div></td>
+                                                <td><div>"                                     "</div></td>
+                                                <td><div>"                                     "</div></td>
+                                                <td><div>"                                     "</div></td>
+                                                <td><div>"                                     "</div></td>
+                                                <td><div>"                                     "</div></td>
+                                                <td><div>"                                     "</div></td>
+                                                <td><div>"                                     "</div></td>
+                                                <td><div>"                                     "</div></td>
+                                                <td><div id="myART" style="width: 300px; height: 300px;"></div></td>
+                                            </tr>
+                                    </table>
+                                </div> 
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="static/LifeExpectancy.js"></script>
+<script type="text/javascript" src="static/ART.js"></script>
+       
+
+</body>
+</html>
