@@ -71,7 +71,7 @@ d3.json("../geoJSON/countries.geojson",function(data){
         }
       });
       // Bind text to popup when country is clicked
-      layer.bindPopup("Country: " + feature.properties.ADMIN + "<hr> HIV Rate: " + countryData[feature.properties.ADMIN]);
+      layer.bindPopup("Country: " + feature.properties.ADMIN + "<hr> HIV Rate (2017): " + countryData[feature.properties.ADMIN]);
     }, 
     style: style,
     

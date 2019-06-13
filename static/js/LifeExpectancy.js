@@ -1,13 +1,16 @@
 // Load data from life-expectancy.csv
+var url = "http://127.0.0.1:5000/life-expectancy"
+d3.json(url,function(err, data){ 
+    console.log(data);
 
-Plotly.d3.csv('../CSV files/life_expectancy_2000to2017.csv', function(err, rows){
+// Plotly.d3.csv('../CSV files/life_expectancy_2000to2017.csv', function(err, data){
     
-    function unpack(rows, key) {
-        return rows.map(function(row) { return row[key]; });
+    function unpack(data, key) {
+        return data.map(function(data) { return data[key]; });
     }
-    var allCountryNames = unpack(rows, 'Entity'),
-        allYear = unpack(rows, 'Year'),
-        allLife = unpack(rows, 'Life_Expectancy'),
+    var allCountryNames = unpack(data, 'Entity'),
+        allYear = unpack(data, 'Year'),
+        allLife = unpack(data, 'Life_Expectancy'),
         listofCountries = [],
         currentCountry,
         currentLife = [],
@@ -36,7 +39,7 @@ Plotly.d3.csv('../CSV files/life_expectancy_2000to2017.csv', function(err, rows)
 
     function setBubblePlot(chosenCountry) {
         getCountryData(chosenCountry);
-        console.log(currentLife);
+       
         var trace1 = {
             x: currentYear,
             y: currentLife,
@@ -49,7 +52,7 @@ Plotly.d3.csv('../CSV files/life_expectancy_2000to2017.csv', function(err, rows)
         };
 
         var data = [trace1];
-
+       
         var layout = {
             title:'Life Expectancy',
             xaxis: {title: 'Year'},
@@ -80,35 +83,5 @@ Plotly.d3.csv('../CSV files/life_expectancy_2000to2017.csv', function(err, rows)
     }
 
     countrySelector.addEventListener('change', updateCountry, false);
-
-
-    function unpack(rows, key) {
-        return rows.map(function(row) { return row[key]; });
-    }
-    
-    var allCountryNames = unpack(rows, 'Entity'),
-        allYear = unpack(rows, 'Year'),
-        allLife = unpack(rows, 'Life_Expectancy'),
-        listofCountries = [],
-        currentCountry,
-        currentLife = [],
-        currentYear = [];
-
-    for (var i = 0; i < allCountryNames.length; i++ ){
-        if (listofCountries.indexOf(allCountryNames[i]) === -1 ){
-            listofCountries.push(allCountryNames[i]);
-        }
-    }
-
-    function getCountryData(chosenCountry) {
-        currentLife = [];
-        currentYear = [];
-        for (var i = 0 ; i < allCountryNames.length ; i++){
-            if ( allCountryNames[i] === chosenCountry ) {
-                currentLife.push(allLife[i]);
-                currentYear.push(allYear[i]);
-            }
-        }
-    };
 
 });

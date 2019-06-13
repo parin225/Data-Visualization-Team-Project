@@ -1,12 +1,15 @@
 // Load data from life-expectancy.csv
-Plotly.d3.csv('../CSV files/art_2000to2015.csv', function(err, rows){
-    console.log(rows);
-    function unpack(rows, key) {
-        return rows.map(function(row) { return row[key]; });
+var url = "http://127.0.0.1:5000/art"
+d3.json(url,function(err, data){ 
+
+// Plotly.d3.csv('../CSV files/art_2000to2015.csv', function(err, rows){
+
+    function unpack(data, key) {
+        return data.map(function(data) { return data[key]; });
     }
-    var allCountryNames = unpack(rows, 'Entity'),
-        allYear = unpack(rows, 'Year'),
-        allLife = unpack(rows, 'Percent_Living_With_HIV'),
+    var allCountryNames = unpack(data, 'Entity'),
+        allYear = unpack(data, 'Year'),
+        allLife = unpack(data, 'Percent_Living_With_HIV'),
         listofCountries = [],
         currentCountry,
         currentLife = [],
@@ -19,7 +22,6 @@ Plotly.d3.csv('../CSV files/art_2000to2015.csv', function(err, rows){
     }
 
     function getCountryData(chosenCountry) {
-        console.log("I am here in ART")
         currentLife = [];
         currentYear = [];
         for (var i = 0 ; i < allCountryNames.length ; i++){
@@ -29,7 +31,7 @@ Plotly.d3.csv('../CSV files/art_2000to2015.csv', function(err, rows){
                 currentYear.push(allYear[i]);
             }
         }
-        c
+        
     };
 
     // Default Country Data
@@ -37,7 +39,7 @@ Plotly.d3.csv('../CSV files/art_2000to2015.csv', function(err, rows){
 
     function setBubblePlot(chosenCountry) {
         getCountryData(chosenCountry);
-        console.log(currentLife);
+    
         var trace1 = {
             x: currentYear,
             y: currentLife,
@@ -67,15 +69,15 @@ Plotly.d3.csv('../CSV files/art_2000to2015.csv', function(err, rows){
         plotEl = innerContainer.querySelector('.plot'),
         countrySelector = innerContainer.querySelector('.countrydata');
 
-    function assignOptions(textArray, selector) {
-        for (var i = 0; i < textArray.length;  i++) {
-            var currentOption = document.createElement('option');
-            currentOption.text = textArray[i];
-            selector.appendChild(currentOption);
-        }
-    }
+    // function assignOptions(textArray, selector) {
+    //     for (var i = 0; i < textArray.length;  i++) {
+    //         var currentOption = document.createElement('option');
+    //         currentOption.text = textArray[i];
+    //         selector.appendChild(currentOption);
+    //     }
+    // }
 
-    assignOptions(listofCountries, countrySelector);
+    // assignOptions(listofCountries, countrySelector);
 
     function updateCountry(){
         setBubblePlot(countrySelector.value);
@@ -84,31 +86,4 @@ Plotly.d3.csv('../CSV files/art_2000to2015.csv', function(err, rows){
     countrySelector.addEventListener('change', updateCountry, false);
 
 
-    function unpack(rows, key) {
-        return rows.map(function(row) { return row[key]; });
-    }
-    var allCountryNames = unpack(rows, 'Entity'),
-        allYear = unpack(rows, 'Year'),
-        allLife = unpack(rows, 'Percent_Living_With_HIV'),
-        listofCountries = [],
-        currentCountry,
-        currentLife = [],
-        currentYear = [];
-
-    for (var i = 0; i < allCountryNames.length; i++ ){
-        if (listofCountries.indexOf(allCountryNames[i]) === -1 ){
-            listofCountries.push(allCountryNames[i]);
-        }
-    }
-
-    function getCountryData(chosenCountry) {
-        currentLife = [];
-        currentYear = [];
-        for (var i = 0 ; i < allCountryNames.length ; i++){
-            if ( allCountryNames[i] === chosenCountry ) {
-                currentLife.push(allLife[i]);
-                currentYear.push(allYear[i]);
-            }
-        }
-    };
 });

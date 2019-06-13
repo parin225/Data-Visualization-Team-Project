@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify
 from flask_mysqldb import MySQL
 import pandas as pd
+import json
 
 
 app = Flask(__name__)
@@ -8,7 +9,7 @@ app = Flask(__name__)
 #MySQL configurations
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'cookies25'
-app.config['MYSQL_DB'] = 'HIV'
+app.config['MYSQL_DB'] = 'HIV_AIDS'
 app.config['MYSQL_HOST'] = 'localhost'
 mysql = MySQL(app)
 
@@ -18,15 +19,32 @@ def home():
 
 @app.route('/life-expectancy')
 def life_expectancy():
-        cur = mysql.connection.cursor()
-        cur.execute('SELECT Entity as Country, Code, Year, Life_Expectancy, Country_ID FROM  Life_Expectancy')
+        cur = mysql.connection
+        df = pd.read_sql('SELECT Entity, Year, Life_Expectancy FROM  Life_Expectancy', cur)
+
+        jsonfiles = json.loads(df.to_json(orient='records'))
+
+        return jsonify(jsonfiles)
+
+        # trace = df.to_json(orient='columns')
+
+        # cur.execute('SELECT Country_ID, Entity, Code, Year, Life_Expectancy, Country_ID FROM  Life_Expectancy')
         # rv = cur.fetchall()
-        life = [dict(zip(['Country', 'Code' ,'Year', 'Life Expectancy'], row)) for row in cur.fetchall()]
+        # print(rv)
+        # life = [dict(zip(['Country', 'Code' ,'Year', 'Life Expectancy'], row)) for row in cur.fetchall()]
         # trace = {
         #     "x": life["Year"].values.tolist(),
-        #     "y": life["Life_Expectancy"].values.tolist()
+        #     "y": life["Life Expectancy"].values.tolist()
         # }
-        return jsonify(life)
+
+        # dict(life)
+
+        # # d = {}
+        # # for key, lst in rv:
+        # #         d.setdefault(key, []).extend(lst)
+        # # print(d)
+        
+    
 
 @app.route('/death')
 def death():
@@ -48,14 +66,21 @@ def aids():
 
 @app.route('/art')
 def art():
-        cur = mysql.connection.cursor()
-        cur.execute('SELECT Entity, Code, Year, `Percent_Living_With_HIV`, Country_ID FROM ART')
-        
-        art = [dict(zip(['Country', 'Code' ,'Year', '% of People Living with HIV'], row)) for row in cur.fetchall()]
+        cur = mysql.connection
 
+        df = pd.read_sql('SELECT Entity,Year, `Percent_Living_With_HIV` FROM ART', cur)
+
+        jsonfiles = json.loads(df.to_json(orient='records'))
+
+        return jsonify(jsonfiles)
+
+
+        # cur.execute('SELECT Entity, Code, Year, `Percent_Living_With_HIV`, Country_ID FROM ART')
         
-        # rv = cur.fetchall()
-        return jsonify(art)
+        # art = [dict(zip(['Country', 'Code' ,'Year', '% of People Living with HIV'], row)) for row in cur.fetchall()]
+
+        # # rv = cur.fetchall()
+        # return jsonify(art)
 
 
 if __name__ == '__main__':
