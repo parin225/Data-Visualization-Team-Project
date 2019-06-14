@@ -54,22 +54,25 @@
         </ul>
     </div>
 
-    <div id="myDiv"> <!-- Plotly chart will be drawn inside this DIV --> </div>
+   <!-- JS -->
     <script src="{{url_for('static', filename='js/death.js')}}"></script>
+    <script src="{{url_for('static', filename='js/deathbyage.js')}}"></script>
 
-   
- </nav>
+    </nav>
+ 
+<!-- Image to put on page -->
+<img src="https://cdn.hiptoro.com/wp-content/uploads/2019/05/AIDS-2-800x400.jpg" alt="HIV Image"
+style="width:100%;height:300px;">
  
 <div class="container">
     <div class="row">
             <div class="col-sm-6 col-sm-6">
-                        <div id="myDeath"></div>
-                                
-                            <div class="showcase__section" id="bubble">
-                                <div id="bubbleplots">
-                                <div class="bubbleplot" data-num="0">
-                                    <div class="plot" id="plotdiv"></div>
-                                    <div class="control-row">
+                <div id="myDeath"></div>
+                <div class="showcase__section" id="bubble">
+                    <div id="bubbleplots">
+                        <div class="bubbleplot" data-num="0">
+                            <div class="plot" id="plotdiv"></div>
+                                <div class="control-row">
                                     Country: <select class="countrydata">
                                     </select>
                                 </div>
@@ -77,14 +80,13 @@
                     </div>
                 </div>
              </div>
-             <div class="col-sm-6 col-sm-6"></div>
-                        <div id="myAge"></div>
+             <!-- <div class="col-sm-6 col-sm-6"></div> -->
+             <div id="myDiv"> <!-- Plotly chart will be drawn inside this DIV --> </div>
+            <div id="myAge"></div>
     </div>
 </div>
     
 
-<script src="{{url_for('static', filename='js/death.js')}}"></script>
-<script src="{{url_for('static', filename='js/deathbyage.js')}}"></script>
 
            
     

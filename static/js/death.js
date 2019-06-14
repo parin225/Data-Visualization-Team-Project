@@ -2,9 +2,6 @@
 var url = "/aids"
 d3.json(url, function(err,data){
     console.log(data);
-
-// Load data from Aids.csv
-// Plotly.d3.csv('CSV files/aids_2013_to_2017.csv', function(err, rows){
     
     function unpack(data, key) {
         return data.map(function(data) { return data[key]; });
@@ -47,7 +44,8 @@ d3.json(url, function(err,data){
             mode: 'lines+markers',
             marker: {
                 size: 12,
-                opacity: 0.5
+                color:"red",
+                opacity: 1
             }
         };
 
@@ -55,8 +53,8 @@ d3.json(url, function(err,data){
 
         var layout = {
             title:'Deaths',
-            height: 700,
-            width: 700
+            height: 500,
+            width: 500
         };
 
         Plotly.newPlot('myDeath', data, layout);

@@ -1,10 +1,7 @@
 // Load data from life-expectancy.csv
 var url = "/life-expectancy"
 d3.json(url,function(err, data){ 
-    console.log(data);
 
-// Plotly.d3.csv('../CSV files/life_expectancy_2000to2017.csv', function(err, data){
-    
     function unpack(data, key) {
         return data.map(function(data) { return data[key]; });
     }

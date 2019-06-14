@@ -1,9 +1,7 @@
 // Load data from Aids.csv
 var url = "/deaths"
 d3.json(url, function(err,data){
-    console.log(data);
 
-// Plotly.d3.csv('CSV files/death_age_2013_to_2017.csv', function(err, rows){
     
     function unpack(data, key) {
         return data.map(function(data) { return data[key]; });
@@ -59,7 +57,7 @@ d3.json(url, function(err,data){
         getCountryData(chosenCountry);
         console.log(currentYear);
 
-        var allLabels = ['Toddlers','Teens','Adults','Retired','Elderly'];
+        var allLabels = ['Toddlers (1-4)','Teens (5-14)','Adults (15-49)','Retired (50-69)','Elderly (70+)'];
 
         var allValues = [
             [currentToddlers[0], currentTeens[0], currentAdults[0], currentRetired[0], currentElderly[0]],
@@ -170,15 +168,15 @@ d3.json(url, function(err,data){
         plotEl = innerContainer.querySelector('.plot'),
         countrySelector = innerContainer.querySelector('.countrydata');
 
-    function assignOptions(textArray, selector) {
-        for (var i = 0; i < textArray.length;  i++) {
-            var currentOption = document.createElement('option');
-            currentOption.text = textArray[i];
-            selector.appendChild(currentOption);
-        }
-    }
+    // function assignOptions(textArray, selector) {
+    //     for (var i = 0; i < textArray.length;  i++) {
+    //         var currentOption = document.createElement('option');
+    //         currentOption.text = textArray[i];
+    //         selector.appendChild(currentOption);
+    //     }
+    // }
 
-    assignOptions(listofCountries, countrySelector);
+    // assignOptions(listofCountries, countrySelector);
 
     function updateCountry(){
         setBubblePlot(countrySelector.value);

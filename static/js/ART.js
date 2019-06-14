@@ -2,8 +2,6 @@
 var url = "/art"
 d3.json(url,function(err, data){ 
 
-// Plotly.d3.csv('../CSV files/art_2000to2015.csv', function(err, rows){
-
     function unpack(data, key) {
         return data.map(function(data) { return data[key]; });
     }
