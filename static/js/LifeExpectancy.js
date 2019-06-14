@@ -1,5 +1,5 @@
 // Load data from life-expectancy.csv
-var url = "http://127.0.0.1:5000/life-expectancy"
+var url = "/life-expectancy"
 d3.json(url,function(err, data){ 
     console.log(data);
 

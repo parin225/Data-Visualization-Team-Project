@@ -1,5 +1,5 @@
-// Load data from life-expectancy.csv
-var url = "http://127.0.0.1:5000/art"
+// Load in data
+var url = "/art"
 d3.json(url,function(err, data){ 
 
 // Plotly.d3.csv('../CSV files/art_2000to2015.csv', function(err, rows){

@@ -72,6 +72,28 @@ padding: 75px;
   margin-bottom: 20px;
 }
 
+/* preventions tab stylings */
+.container-fluid {
+  width: 100%;
+  margin-bottom: 0px;
+  margin-top: 50px;
+  padding-top: 10px;
+}
+
+.sidebar {
+  position: absolute;
+  width: 14%;
+  height: 100%;
+  left: 5px;
+}
+
+/* ----------------------- */
+
+
+
+
+
+
 /* media query to change the navigation bar when the width of the page changes */
 @media (min-width: 768px) {
     .navbar {

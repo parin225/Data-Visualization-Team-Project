@@ -11,8 +11,6 @@ SELECT * FROM ART;
 USE HIV_AIDS;
 SELECT * FROM Life_Expectancy;
 
--- DELETE FROM Life_Expectancy WHERE Country_ID is null;
-
 #display the Death table
 USE HIV_AIDS;
 SELECT * FROM Death;

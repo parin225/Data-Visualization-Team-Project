@@ -24,7 +24,7 @@
      <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <!-- CSS  -->
-    <link rel="stylesheet" href="../static/CSS/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='CSS/style.css')}}">
 
      <!-- Plotly.js -->
      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -33,23 +33,23 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light xyz">
-        <a href="hiv.html" class="navbar-brand">HIV</a>
+        <a href="/" class="navbar-brand">HIV</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
     <div class="collapse navbar-collapse xyz" id="navbarText">
         <ul class="navbar-nav ml-auto">
          <li class="nav-item active">
-            <a class="nav-link" href="preventions.html">Preventions<span class="sr-only"></span></a>
+            <a class="nav-link" href="/prevention">Preventions<span class="sr-only"></span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="treatments.html">Treatments</a>
+            <a class="nav-link" href="/treatment">Treatments</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="deaths.html">Deaths <span class="sr-only"></span></a>
+            <a class="nav-link" href="/death">Deaths <span class="sr-only"></span></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="donate.html">Donate <span class="sr-only"></span></a>
+            <a class="nav-link" href="/donate">Donate <span class="sr-only"></span></a>
         </li>
         </ul>
     </div>
@@ -59,13 +59,13 @@
     <div id="map"></div>
     
     <!-- API key -->
-    <script type="text/javascript" src="../static/js/config.js"></script>
+    <script src="{{url_for('static', filename='js/config.js')}}"></script>
 
     <!-- JS  -->
-    <script type="text/javascript" src="../static/js/app.js"></script>
-    <script type="text/javascript" src="../static/js/LifeExpectancy.js"></script>
-    <script type="text/javascript" src="../static/js/ART.js"></script>
-
+    <script src="{{url_for('static', filename='js/app.js')}}"></script>
+    <script src="{{url_for('static', filename='js/LifeExpectancy.js')}}"></script>
+    <script src="{{url_for('static', filename='js/ART.js')}}"></script>
+ 
     <div>
             <div class="row descriptions">
                     <div class="col-sm-12 col-md-12">
@@ -166,7 +166,7 @@
                                             <br>
                                             <br>
                                             <img src="https://aidsinfo.nih.gov/images/glossaryimages/Viral-Suppression-600.jpg" alt="ART Image"
-                                            style="width:75%;height:150;">
+                                            style="width:75%;height:150;" class=center>
                                             <br>
                                             <br>
                                             <h2>Visualizations: </h2>

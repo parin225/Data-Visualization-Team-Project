@@ -3,7 +3,6 @@ from flask_mysqldb import MySQL
 import pandas as pd
 import json
 
-
 app = Flask(__name__)
 
 #MySQL configurations
@@ -15,7 +14,24 @@ mysql = MySQL(app)
 
 @app.route('/')
 def home():
-    return render_template ("hiv.html")
+        return render_template ("hiv.html")
+
+@app.route('/treatment')
+def treatment():
+        return render_template("treatments.html")
+
+@app.route('/donate')
+def donate():
+        return render_template("donate.html")
+
+@app.route('/prevention')
+def prevention():
+        return render_template("preventions.html")
+
+@app.route('/death')
+def death():
+        return render_template("deaths.html")
+
 
 @app.route('/life-expectancy')
 def life_expectancy():
@@ -26,43 +42,25 @@ def life_expectancy():
 
         return jsonify(jsonfiles)
 
-        # trace = df.to_json(orient='columns')
+@app.route('/deaths')
+def deaths():
+        cur = mysql.connection
 
-        # cur.execute('SELECT Country_ID, Entity, Code, Year, Life_Expectancy, Country_ID FROM  Life_Expectancy')
-        # rv = cur.fetchall()
-        # print(rv)
-        # life = [dict(zip(['Country', 'Code' ,'Year', 'Life Expectancy'], row)) for row in cur.fetchall()]
-        # trace = {
-        #     "x": life["Year"].values.tolist(),
-        #     "y": life["Life Expectancy"].values.tolist()
-        # }
+        df = pd.read_sql('SELECT Entity, Year, Toddlers, Teens, Adults, Retired, Elderly FROM Death', cur)
 
-        # dict(life)
+        jsonfiles = json.loads(df.to_json(orient='records'))
 
-        # # d = {}
-        # # for key, lst in rv:
-        # #         d.setdefault(key, []).extend(lst)
-        # # print(d)
-        
-    
-
-@app.route('/death')
-def death():
-        cur = mysql.connection.cursor()
-        cur.execute('SELECT Entity, Year, `(1-4)`, `(5-14)`, `(15-49)`, `(50-69)`, `(70+)`, Country_ID FROM Death')
-        
-        death = [dict(zip(['Country', 'Year' ,'Ages 1-4', 'Ages 5-14', 'Ages 15-49', 'Ages 50-69', 'Ages 70+'], row)) for row in cur.fetchall()]
-        
-        return jsonify(death)
+        return jsonify(jsonfiles)
+ 
 
 @app.route('/aids')
 def aids():
-        cur = mysql.connection.cursor()
-        cur.execute('SELECT Entity, Code, Year, Deaths, New_Infections, `HIV_Incidents(tens)`, Country_ID FROM AIDS')
+        cur = mysql.connection
+        
+        df = pd.read_sql('SELECT Entity, Year, Deaths FROM AIDS', cur)
 
-        aids = [dict(zip(['Country', 'Code' ,'Year', 'Death', 'New Infections', 'HIV Incidents(tens)'], row)) for row in cur.fetchall()]
-
-        return jsonify(aids)
+        jsonfiles = json.loads(df.to_json(orient='records'))
+        return jsonify(jsonfiles)
 
 @app.route('/art')
 def art():
@@ -71,16 +69,7 @@ def art():
         df = pd.read_sql('SELECT Entity,Year, `Percent_Living_With_HIV` FROM ART', cur)
 
         jsonfiles = json.loads(df.to_json(orient='records'))
-
         return jsonify(jsonfiles)
-
-
-        # cur.execute('SELECT Entity, Code, Year, `Percent_Living_With_HIV`, Country_ID FROM ART')
-        
-        # art = [dict(zip(['Country', 'Code' ,'Year', '% of People Living with HIV'], row)) for row in cur.fetchall()]
-
-        # # rv = cur.fetchall()
-        # return jsonify(art)
 
 
 if __name__ == '__main__':
