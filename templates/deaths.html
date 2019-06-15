@@ -64,31 +64,86 @@
 <img src="https://cdn.hiptoro.com/wp-content/uploads/2019/05/AIDS-2-800x400.jpg" alt="HIV Image"
 style="width:100%;height:300px;">
  
-<div class="container">
-    <div class="row">
-            <div class="col-sm-6 col-sm-6">
-                <div id="myDeath"></div>
-                <div class="showcase__section" id="bubble">
-                    <div id="bubbleplots">
-                        <div class="bubbleplot" data-num="0">
-                            <div class="plot" id="plotdiv"></div>
-                                <div class="control-row">
-                                    Country: <select class="countrydata">
-                                    </select>
+<div class="row descriptions">
+    <div class="col-sm-12 col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2 style="color:red;"><strong>HIV Deaths Across the Globe</strong></h2>
+                    <hr>
+
+
+                        <p style="padding-top: 1cm">
+                            HIV remains a leading cause of death worldwide and the leading cause of death globally among women of reproductive age. However, deaths have declined, due in part to antiretroviral treatment (ART) scale-up. 940,000 people died of AIDS in 2017,
+                            a 33% decrease from 1.4 million in 2010 and a 51% decrease from the peak of 1.9 million in 2004.Since the beginning of the epidemic, more than 70 million people have been infected with the HIV virus and about 35 million people have died of HIV.
+                            Globally, 36.9 million [31.1–43.9 million] people were living with HIV at the end of 2017. An estimated 0.8% [0.6-0.9%] of adults aged 15–49 years worldwide are living with HIV,although the burden of the epidemic continues to vary considerably 
+                            between countries and regions. The WHO African region remains most severely affected, with nearly 1 in every 25 adults (4.1%) living with HIV and accounting for nearly two-thirds of the people living with HIV worldwide.Expanded access to 
+                            antiretroviral therapy (ART) and a declining incidence of HIV infection have led to a steep fall globally in the number of adults and children dying from HIV-related causes. The estimated 940 000 [670 000−1 300 000] people dying from HIV globally 
+                            in 2017 were 52% fewer than in 2004 (the peak) and 34% fewer than in 2010 in spite of a period of substantial population growth in many high burden countries.</p>   
+
+                
+                            <table border="11" align="center" >
+                          
+                                    <h3 style="color:red; padding-top: 1cm" align=center>HIV Global Death Statistics in 2017</h3>
+                                    <th><strong>Affected Regions</strong></th>
+                                    <th><strong>Total Deaths</strong></th>
+                                   
+                                </tr>
+                                <tr>
+                            <td width="33%">Eastern and Southern Africa</td>
+                            <td width="34%">940,000</td>
+                            </tr>
+                            <tr>
+                                <td>Western and Central Africa</td>
+                                <td>380,000</td>
+                            </tr>
+                            <tr>
+                                <td>Asia and the Pacfic</td>
+                                <td>280,000</td>
+                            </tr>
+                            <tr>
+                                <td>Western and Central Europe and North</td>
+                                <td>170,000</td>
+                            </tr>
+                            <tr>
+                                <td>Latin America</td>
+                                <td>37,000</td>
+                            </tr>
+                            <tr>
+                                <td>Eastern Europe and Central Asia</td>
+                                <td>34,000</td>
+                            </tr>
+                            <tr>
+                                <td>The Carribean</td>
+                                <td>10,000</td> 
+                            </tr>
+                            <tr>
+                                <td>Middle East and North Africa</td>
+                                <td>9,800</td>
+                            </tr>
+                            <tr>
+                            </table>   
+
+                            <div class="container">
+                                <div class="row">
+                                        <div class="col-sm-6 col-sm-6">
+                                            <div id="myDeath"></div>
+                                            <div class="showcase__section" id="bubble">
+                                                <div id="bubbleplots">
+                                                    <div class="bubbleplot" data-num="0">
+                                                        <div class="plot" id="plotdiv"></div>
+                                                            <div class="control-row">
+                                                                Country: <select class="countrydata">
+                                                                </select>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                         </div>
+                                         <!-- <div class="col-sm-6 col-sm-6"></div> -->
+                                         <div id="myDiv"> <!-- Plotly chart will be drawn inside this DIV --> </div>
+                                        <div id="myAge"></div>
                                 </div>
-                        </div>
-                    </div>
-                </div>
-             </div>
-             <!-- <div class="col-sm-6 col-sm-6"></div> -->
-             <div id="myDiv"> <!-- Plotly chart will be drawn inside this DIV --> </div>
-            <div id="myAge"></div>
-    </div>
-</div>
-    
-
-
-           
+                            </div>   
     
 </body>
 </html>
