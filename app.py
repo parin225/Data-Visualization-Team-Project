@@ -31,7 +31,28 @@ def prevention():
 @app.route('/death')
 def death():
         return render_template("deaths.html")
+        
+@app.route('/hiv_info')
+def hiv_info():
+        with open(os.path.join('Resources', 'CSV files', 'aids_2013_to_2017.csv'), newline='') as csvfile:      
+                line = csvfile.readline()
+                # csvreader = csv.reader(csvfile, delimiter=',')
+                # csvheader = next(csvreader)
+                rows = []
+                while line:
+                        print(line)
+                        rows.append(line)
+                        line = csvfile.readline()
+                join = '\n'.join(rows)
+                resp = Response(join)
+                resp.headers["Content-Type"] = 'application/csv'
+                return resp 
 
+@app.route("/geojson")
+def geojson():
+        with open(os.path.join('Resources', 'geoJSON', 'countries.geojson')) as f:
+                d = json.load(f)
+                return jsonify(d)
 
 @app.route('/life-expectancy')
 def life_expectancy():

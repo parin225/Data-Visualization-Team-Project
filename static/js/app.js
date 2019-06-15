@@ -1,5 +1,5 @@
 // Loading in CSV file
-d3.csv("../CSV files/aids_2013_to_2017.csv", function(err, d) {
+d3.csv("/hiv_info", function(err, d) {
   if (err) throw err;
   var countryData = {};
   for (var i = 0; i < d.length; i++){
@@ -24,7 +24,7 @@ var myMap = L.map("map", {
   myMap.fitWorld().zoomIn();
 
 // Loading GeoJSON file - 
-d3.json("../geoJSON/countries.geojson",function(data){
+d3.json("/geojson",function(data){
 
     function getColor(HIV) {
       return HIV > 3000000 ? '#800026':
