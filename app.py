@@ -34,7 +34,7 @@ def death():
         
 @app.route('/hiv_info')
 def hiv_info():
-        with open(os.path.join('Resources', 'CSV files', 'aids_2013_to_2017.csv'), newline='') as csvfile:      
+        with open(os.path.join('Resources', 'CSV_files', 'aids_2013_to_2017.csv'), newline='') as csvfile:      
                 line = csvfile.readline()
                 # csvreader = csv.reader(csvfile, delimiter=',')
                 # csvheader = next(csvreader)
