@@ -80,26 +80,3 @@ d3.json("/geojson",function(data){
 
   });
 });
-
-  var legend = L.control({position: 'bottomright'});
-
-    legend.onAdd = function (myMap) {
-
-    var div = L.DomUtil.create('div', 'info legend'),
-        incidents = [0, 50000, 100000, 500000, 1000000, 2000000, 3000000];
-        labels = [];
-
-    // loop through our incident intervals and generate a label with a colored square for each interval
-    for (var i = 0; i < incidents.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + getColor(incidents[i] + 1) + '"></i> ' +
-            incidents[i] + (incidents[i + 1] ? '&ndash;' + incidents[i + 1] + '<br>' : '+');
-    }
-
-    return div;
-
-legend.addTo(myMap);
-};
-
-
-

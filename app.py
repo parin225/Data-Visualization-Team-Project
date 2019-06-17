@@ -1,13 +1,14 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, Response
 from flask_mysqldb import MySQL
 import pandas as pd
 import json
+import os
 
 app = Flask(__name__)
 
 #MySQL configurations
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'cookies25'
+app.config['MYSQL_USER'] = 'Enter SQL Username'
+app.config['MYSQL_PASSWORD'] = 'Enter SQL Password'
 app.config['MYSQL_DB'] = 'HIV_AIDS'
 app.config['MYSQL_HOST'] = 'localhost'
 mysql = MySQL(app)
@@ -36,8 +37,6 @@ def death():
 def hiv_info():
         with open(os.path.join('Resources', 'CSV files', 'aids_2013_to_2017.csv'), newline='') as csvfile:      
                 line = csvfile.readline()
-                # csvreader = csv.reader(csvfile, delimiter=',')
-                # csvheader = next(csvreader)
                 rows = []
                 while line:
                         print(line)
