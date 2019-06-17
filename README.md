@@ -16,9 +16,9 @@ Prior to running the steps/code below in our ETL Pipeline and Website, please en
 
 ## Welcome to our HIV Website
 
-### ETL Pipeline- *Jupyter Notebook(Pandas)/MySQL/Flask*
+## ETL Pipeline- *Jupyter Notebook(Pandas)/MySQL/Flask*
 
-## Extract- Data sources:
+### Extract- Data sources:
 
 1.	AIDS CSV
 •	Institute for Health Metrics and Evaluation (IHME): http://ghdx.healthdata.org/gbd-results-tool
