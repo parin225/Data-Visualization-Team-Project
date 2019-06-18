@@ -8,11 +8,10 @@ Prior to running the steps/code below in our ETL Pipeline and Website, please en
 
 ### MySQL-
 1.	Login to your ***MySQL database***
-2.	Create a new database within a new file in order to load the Pandas dataframes into MySQL by
-“CREATE DATABASE HIV_AIDS;”
+2.	Within our Github repository "Data-Visualization-Team-Project" we created a MySQL file called "hiv_aids.sql" for you to download within your MySQL. PLease download this file and it will created the HIV_AIDS database that we are using within MySQL prior to running the following.
 
 ### Static/js/config.js-
-1.	Within the **config.js** file located within Data-Visualization-Team-Project/static/js/config.js, change your API_key from www.mapbox.com after logging in.
+3.	Within the **config.js** file located within Data-Visualization-Team-Project/static/js/config.js, change your API_key from www.mapbox.com after logging in.
 
 ## Welcome to our HIV Website
 
@@ -30,7 +29,7 @@ Prior to running the steps/code below in our ETL Pipeline and Website, please en
 4.	HIV Death Rate By Age Group CSV
  HRSA Data Warehouse: https://catalog.data.gov/dataset?tags=hiv
 
-## ETL Transform
+## ETL Transformation
 *Cleaning Data within Jupyter Notebook*
 1.  Cleaning the***ART CSV file:*** We read the the csv into a dataframe and then filtered on the year, entity=”country” and renamed headers “% of people living with HIV to Percent_Living_With_HIV “ for clarification. 
 2.	Cleaning the ***Life Expectancy CSV file:*** we first read the csv into a dataframe and then filtered on years and life expectancy, and then renamed the "Life expectancy (Clio-Infra up to 1949; UN Population Division for 1950 to 2015) (years)" to "Life_Expectancy" to simplify headers.
@@ -39,10 +38,10 @@ Prior to running the steps/code below in our ETL Pipeline and Website, please en
 
 ## ETL Load
 *Loading pandas dataframes into MySQL
-1(a). **Note(1): Within Juptyer Notebook - we created a cell (#2) for you to insert your username and password**We loaded each of the dataframes (ART/Life Expectancy/Aids/Death) into the MySQL database via connection_string followed by creating an engine. **Also change your username and password within the connection_string**
-***Note(2): Log into MySQL Database and create a ***HIV_AIDS*** database to load the dataframes into the database.
+1. **Note(1): Within Juptyer Notebook - we created a cell (#2) for you to insert your username and password**We loaded each of the dataframes (ART/Life Expectancy/Aids/Death) into the MySQL database via connection_string followed by creating an engine. **Also change your username and password within the connection_string**
+***Note(2): Log into MySQL Database and download the ***hiv_aids.sql*** from our github repository which will create our HIV_AIDS database to then load the dataframes into the database.
 
-1(b). Within MySQL, we uploaded the 4 dataframes from Jupyter notebook into the mySQL database and created 4 tables relative to each CSV file/dataframe. We also created two Primary keys: For the AIDS df the primary key is  “country_id” and Primary key for the Life Expectancy/ART/Deaths dfs is “foriegn_id.”
+2. Within our Github repository, we created a MySWL we uploaded the 4 dataframes from Jupyter notebook into the mySQL database and created 4 tables relative to each CSV file/dataframe. We also created two Primary keys: For the AIDS df the primary key is  “country_id” and Primary key for the Life Expectancy/ART/Deaths dfs is “foriegn_id.”
 
 *Flask- (app.py)/JS*
 2(a) **Note(3): Within the Flask file/app.py remember to set your MySQL username and password.**
@@ -52,7 +51,7 @@ Prior to running the steps/code below in our ETL Pipeline and Website, please en
 ### Creating our Website- Javascript- HTML/CSS/Flask/Plotly/GeoJSON/Video
 
 ## Homepage 
-For our home page we used HTML to upload relative information to HIV, created a dropdown menu and created an interactive map of all countries showing 2017 data on people living with HIV relative to each country. When styling the page, such as for text, text colors, and background we used CSS.
+For our home page we used HTML to upload relative information to HIV, created a dropdown menu and created an interactive map of all countries showing 2017 data on people living with HIV relative to each country. To create the interactive map, we downloaded the GeoJSON from online to trace the borders of the countries. When styling the page, such as for text, text colors, and background we used CSS.
 ## Preventions Page
 We used HTML to upload relative information on preventions and also created an interactive widget to find local treatment centers by entering zipcodes, which was created in HTML. We also created an user-driven interaction of a YouTube video on ART/PrEP which was created using an additional Javascript library - Video.js. Lastly, the styling of the page is created via CSS. 
 ## Treatments Page
