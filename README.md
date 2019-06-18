@@ -1,5 +1,7 @@
 # Data-Visualization-Team-Project
 
+![Image Description](https://github.com/parin225/Data-Visualization-Team-Project/blob/master/Images/homepage%20image.png)
+
 Prior to running the steps/code below in our ETL Pipeline and Website, please ensure you have completed the following in the respective programs:
 
 ### Juptyer Notebook-
