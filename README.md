@@ -5,8 +5,7 @@
 Prior to running the steps/code below in our ETL Pipeline and Website, please ensure you have completed the following in the respective programs:
 
 ### Juptyer Notebook-
-1.	In order to configure MySQL- within ***Jupyter Notebook***, enter your MySQL username and password in cell #2.
-2.	Within the ***“Loading DataFrames into Database”*** section, within the first cell under this header please insert your MySQL username and password within the “connection_string”
+1.	Within the ***“Loading DataFrames into Database”*** section, within the first cell under this header please insert your MySQL username and password within the “connection_string”
 
 ### MySQL-
 1.	Login to your ***MySQL database***
@@ -43,8 +42,8 @@ Prior to running the steps/code below in our ETL Pipeline and Website, please en
 
 ## ETL Load
 *Loading pandas dataframes into MySQL
-1. **Note(1): Within Juptyer Notebook - we created a cell (#2) for you to insert your username and password**We loaded each of the dataframes (ART/Life Expectancy/Aids/Death) into the MySQL database via connection_string followed by creating an engine. **Also change your username and password within the connection_string**
-***Note(2): Log into MySQL Database and download the ***hiv_aids.sql*** from our github repository which will create our HIV_AIDS database to then load the dataframes into the database.
+1.We loaded each of the dataframes (ART/Life Expectancy/Aids/Death) into the MySQL database via connection_string followed by creating an engine. **Also change your username and password within the connection_string**
+***Note(1): Log into MySQL Database and download the ***hiv_aids.sql*** from our github repository which will create our HIV_AIDS database to then load the dataframes into the database.
 
 2. Within our Github repository, we created a MySQL we uploaded the 4 dataframes from Jupyter notebook into the MySQL database and created 4 tables relative to each CSV file/dataframe. We also created two Primary keys: For the AIDS df the primary key is  “country_id” and Primary key for the Life Expectancy/ART/Deaths dfs is “foriegn_id.”
 
