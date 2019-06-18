@@ -53,10 +53,10 @@ Prior to running the steps/code below in our ETL Pipeline and Website, please en
 2(b) 	Within the app.py, We created five different routes which will take you/render you to their respective html pages within Javascript- such as: (1)hiv.html, (2)treatments.html, (3)preventions.html, (4)death.html, (5)donate.html. 
 2(c)	Additional to the routes that will render to the 5 html pages within JS, we created routes that will render the data/csv’s within mySQL to create their respective charts/graphs within JS. Thus the routes will return the data per each chart/graph such as the death pie charts and line graph and the line graphs for ART and Life Expectancy which is created via Plotly.js. 
 
-### Creating our Website- Javascript- HTML/CSS/Flask/Plotly/GeoJSON/Video
+### Creating our Website- Javascript- HTML/CSS/Flask/Plotly/GeoJSON-Leaflet/Video
 
-## Homepage 
-For our home page we used HTML to upload relative information to HIV, created a dropdown menu and created an interactive map of all countries showing 2017 data on people living with HIV relative to each country. To create the interactive map, we downloaded the GeoJSON from online to trace the borders of the countries. When styling the page, such as for text, text colors, and background we used CSS.
+## HIV Homepage 
+For our home page we used HTML to upload relative information to HIV, created a dropdown menu and created an interactive map of all countries showing 2017 data on people living with HIV relative to each country. To create the interactive map, we downloaded the GeoJSON from online to trace the borders of the countries and also used Leaflet. When styling the page, such as for text, text colors, and background we used CSS.
 ## Preventions Page
 We used HTML to upload relative information on preventions and also created an interactive widget to find local treatment centers by entering zipcodes, which was created in HTML. We also created an user-driven interaction of a YouTube video on ART/PrEP which was created using an additional Javascript library - Video.js. Lastly, the styling of the page is created via CSS. 
 ## Treatments Page
