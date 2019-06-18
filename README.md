@@ -11,7 +11,10 @@ Prior to running the steps/code below in our ETL Pipeline and Website, please en
 2.	Within our Github repository "Data-Visualization-Team-Project" we created a MySQL file called "hiv_aids.sql" for you to download within your MySQL. PLease download this file and it will created the HIV_AIDS database that we are using within MySQL prior to running the following.
 
 ### Static/js/config.js-
-3.	Within the **config.js** file located within Data-Visualization-Team-Project/static/js/config.js, change your API_key from www.mapbox.com after logging in.
+1.	Within the **config.js** file located within Data-Visualization-Team-Project/static/js/config.js, change your API_key from www.mapbox.com after logging in.
+
+### app.py-
+1.	Within the **app.py** file located within Data-Visualization-Team-Project, enter your SQL username and password where it says "Enter SQL Username" and "Enter SQL Password" in order to configure the SQL database.
 
 ## Welcome to our HIV Website
 
@@ -41,7 +44,7 @@ Prior to running the steps/code below in our ETL Pipeline and Website, please en
 1. **Note(1): Within Juptyer Notebook - we created a cell (#2) for you to insert your username and password**We loaded each of the dataframes (ART/Life Expectancy/Aids/Death) into the MySQL database via connection_string followed by creating an engine. **Also change your username and password within the connection_string**
 ***Note(2): Log into MySQL Database and download the ***hiv_aids.sql*** from our github repository which will create our HIV_AIDS database to then load the dataframes into the database.
 
-2. Within our Github repository, we created a MySWL we uploaded the 4 dataframes from Jupyter notebook into the mySQL database and created 4 tables relative to each CSV file/dataframe. We also created two Primary keys: For the AIDS df the primary key is  “country_id” and Primary key for the Life Expectancy/ART/Deaths dfs is “foriegn_id.”
+2. Within our Github repository, we created a MySQL we uploaded the 4 dataframes from Jupyter notebook into the MySQL database and created 4 tables relative to each CSV file/dataframe. We also created two Primary keys: For the AIDS df the primary key is  “country_id” and Primary key for the Life Expectancy/ART/Deaths dfs is “foriegn_id.”
 
 *Flask- (app.py)/JS*
 2(a) **Note(3): Within the Flask file/app.py remember to set your MySQL username and password.**
