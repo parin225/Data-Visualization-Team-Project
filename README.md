@@ -2,6 +2,12 @@
 
 ![Image Description](https://github.com/parin225/Data-Visualization-Team-Project/blob/master/Images/homepage%20image.png)
 
+
+#### Project Presentation Link: 
+https://docs.google.com/presentation/d/19s9tnbRq0gcdUFxOYTTDJLp8VG39hAEFiKh4cixaqWM/edit#slide=id.g5be44a0d26_0_1
+
+
+
 Prior to running the steps/code below in our ETL Pipeline and Website, please ensure you have completed the following in the respective programs:
 
 ### Juptyer Notebook-
